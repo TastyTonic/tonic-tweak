@@ -1,0 +1,190 @@
+/**
+ * Tonic Tweak - Desktop Only
+ */
+
+/* -- TWEAK -- */
+
+/* flexbox instead of magic number padding */
+html > body {
+    display: flex !important;
+    flex-direction: column;
+    padding-top: 0 !important;
+    min-height: 100vh;
+    max-height: 100vh;
+    
+    --content-padding: 10%;
+}
+
+body > nav {
+    position: relative !important;
+}
+
+body > div.container, body > .submit-grid-view {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: clip;
+    padding-bottom: 2em !important;
+}
+
+body > header {
+    flex: 0;
+    display: flex;
+    
+    /* spacing */
+    max-height: 6em;
+    
+    /* move shop down */
+    order: 2;
+}
+
+body > header > img {
+    width: auto;
+}
+
+body > header > :not(img) {
+    margin: 0;
+    padding: 0 2em;
+}
+
+/* navbar position fixes */
+#navbar {
+    padding: 1em 1.5em;
+}
+
+#navbar > div.container-fluid > * {
+    flex: 1;
+}
+
+#navbar > div.container-fluid > [data-bs-original-title="Lottery"] {
+    /* hide mobile lottery completely */
+    display: none;
+}
+
+/* fix dropdown position */
+#navbarResponsive > ul > :last-child .dropdown-menu {
+    margin-left: -4em;
+}
+
+/* add bottom border to last post */
+#posts .card:last-child {
+    border-bottom-width: .1px;
+}
+
+/* -- CUSTOM STYLING -- */
+
+/* override header image */
+.navbar-brand img[alt="header icon"] {
+    width:0px;
+    height: 0px;
+}
+
+.navbar-brand::before, .navbar-brand::after {
+    /* prevent color change from hover */
+    color: var(--primary) !important;
+}
+
+.navbar-brand::before {
+    font-family: "Font Awesome 6 Pro";
+    content: "";
+}
+
+.navbar-brand::after {
+    content: "Tonic Tweak";
+}
+
+/* hihde site banner */
+img[alt="site banner"] {
+    display: none;
+}
+
+/* move account counter to bottom left (maybe not? TODO) */
+nav > div.srd {
+    position: fixed;
+    left: 1em;
+    bottom: 1em;
+    width: auto;
+}
+
+nav > div.srd:not(:hover) {
+    max-width: 32px;
+    overflow: clip;
+}
+
+/* hide sidebar */
+body > div.container > div > div.sidebar {
+    z-index: 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    max-width: 100vw !important;
+}
+
+body > div.container > div > div.sidebar > :not(p) {
+    display: none;
+}
+
+body > div.container > div > div, #post-root, #main-content-col > .comment-section {
+    background-color: transparent;
+    z-index: 1;
+    padding: 0 var(--content-padding);
+}
+
+body > div.container > div:last-child > table {
+    margin: 0 var(--content-padding);
+    width: calc(100% - var(--content-padding) * 2);
+}
+
+body > div.container > div > div > div.sticky {
+    position: static;
+}
+
+body > div.container > div > div > div.sticky + div + style + #posts > div {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+/* sidebar "random"-buttons on bottom right */
+body > div.container > div > div.sidebar > p {
+    display: inline-block;
+    position: fixed;
+    bottom: 0;
+    right: 3em;
+}
+
+/* centered content with better scroll bars */
+body > div.container {
+    margin: 0;
+    min-width: 100vw;
+}
+
+/* spread pagination to sides */
+.pagination > .page-item:last-child {
+    margin-left: auto;
+}
+
+/* better video */
+#post-content video {
+    margin-top: 1em !important;
+    width: 100%;
+    background-color: black
+}
+
+#post-root > div > div > div.card-header {
+    width: 0;
+    transform: translateX(calc(-1rem - 100px));
+}
+
+#post-content > .post-meta, #post-title {
+    padding-left: 4rem;
+}
+
+#post-root > div > div > #voting {
+    width: 0;
+    transform: translateX(2rem);
+}
+
+#post-root > div > div > #voting > * {
+    display: inline-block;
+    width: 3rem;
+}
