@@ -4,7 +4,7 @@
 Add following line to your "Custom CSS"-setting:
 ```css
 @import url('https://cdn.jsdelivr.net/gh/TastyTonic/tonic-tweak@main/tweak.css') screen and (min-width: 720px);
-`` `
+```
 
 ## What it does
 
