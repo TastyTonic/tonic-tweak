@@ -13,6 +13,7 @@ html > body {
     max-height: 100vh;
     
     --content-padding: 10%;
+    --sidebar-padding: 3em;
 }
 
 body > nav {
@@ -23,7 +24,8 @@ body > div.container, body > .submit-grid-view {
     flex-grow: 1;
     overflow-y: auto;
     overflow-x: clip;
-    padding-bottom: 2em !important;
+    padding-bottom: 4em !important;
+    position: relative;
 }
 
 body > header {
@@ -55,14 +57,18 @@ body > header > :not(img) {
     flex: 1;
 }
 
-#navbar > div.container-fluid > [data-bs-original-title="Lottery"] {
+#navbar > div.container-fluid > a.mobile-nav-icon + span {
     /* hide mobile lottery completely */
     display: none;
 }
 
 /* fix dropdown position */
 #navbarResponsive > ul > :last-child .dropdown-menu {
-    margin-left: -4em;
+    margin-left: -3em;
+}
+
+#navbarResponsive > ul > :last-child .dropdown .text-small-extra {
+    white-space: nowrap;
 }
 
 /* add bottom border to last post */
@@ -92,12 +98,16 @@ body > header > :not(img) {
     content: "Tonic Tweak";
 }
 
-/* hihde site banner */
-img[alt="site banner"] {
+.navbar-brand ~ :not(.flex-grow-1.d-fl.d-none.d-md-block):not(.flex-grow-1.d-fl.d-none.d-md-bloc + *) {
     display: none;
 }
 
-/* move account counter to bottom left (maybe not? TODO) */
+/* hide banner */
+img[alt="site banner"], body > img:first-child {
+    display: none;
+}
+
+/* move account counter to bottom left */
 nav > div.srd {
     position: fixed;
     left: 1em;
@@ -110,25 +120,36 @@ nav > div.srd:not(:hover) {
     overflow: clip;
 }
 
-/* hide sidebar */
+nav > div.srd:not(:hover) > :first-child:not(img) {
+    margin-left: 32px;
+}
+
+/* collapse sidebar */
 body > div.container > div > div.sidebar {
-    z-index: 0;
     position: fixed;
-    left: 0;
-    top: 0;
+    right: 0;
+    top: 100px;
     bottom: 0;
-    max-width: 100vw !important;
+    overflow-y: scroll;
+    transition-duration: .33s;
+    z-index: 10;
 }
 
-body > div.container > div > div.sidebar > :not(p) {
-    display: none;
+body > div.container > div > div.sidebar:not(:hover) {
+    padding-top: var(--sidebar-padding) !important;
+    top: calc(100vh - var(--sidebar-padding));
 }
 
-body > div.container > div > div, #post-root, #main-content-col > .comment-section {
-    background-color: transparent;
-    z-index: 1;
+body > div.container > div > div:not(.sidebar), #post-root, #main-content-col > .comment-section {
     padding: 0 var(--content-padding);
 }
+
+/* centered content with better scroll bars */
+body > div.container {
+    margin: 0;
+    min-width: 100vw;
+}
+
 
 body > div.container > div:last-child > table {
     margin: 0 var(--content-padding);
@@ -144,28 +165,13 @@ body > div.container > div > div > div.sticky + div + style + #posts > div {
     min-width: 100%;
 }
 
-/* sidebar "random"-buttons on bottom right */
-body > div.container > div > div.sidebar > p {
-    display: inline-block;
-    position: fixed;
-    bottom: 0;
-    right: 3em;
-}
-
-/* centered content with better scroll bars */
-body > div.container {
-    margin: 0;
-    min-width: 100vw;
-}
-
 /* spread pagination to sides */
 .pagination > .page-item:last-child {
     margin-left: auto;
 }
 
 /* better video */
-#post-content video {
-    margin-top: 1em !important;
+video {
     width: 100%;
     background-color: black
 }
@@ -177,6 +183,10 @@ body > div.container {
 
 #post-content > .post-meta, #post-title {
     padding-left: 4rem;
+}
+
+#post-title {
+    margin-bottom: 2em !important;
 }
 
 #post-root > div > div > #voting {
