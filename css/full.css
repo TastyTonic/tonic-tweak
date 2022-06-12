@@ -1,0 +1,200 @@
+/**
+ * Tonic Tweak - Desktop Only
+ */
+
+/* -- TWEAK -- */
+
+/* flexbox instead of magic number padding */
+html > body {
+    display: flex !important;
+    flex-direction: column;
+    padding-top: 0 !important;
+    min-height: 100vh;
+    max-height: 100vh;
+    
+    --content-padding: 10%;
+    --sidebar-padding: 3em;
+}
+
+body > nav {
+    position: relative !important;
+}
+
+body > div.container, body > .submit-grid-view {
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: clip;
+    padding-bottom: 4em !important;
+    position: relative;
+}
+
+body > header {
+    flex: 0;
+    display: flex;
+    
+    /* spacing */
+    max-height: 6em;
+    
+    /* move shop down */
+    order: 2;
+}
+
+body > header > img {
+    width: auto;
+}
+
+body > header > :not(img) {
+    margin: 0;
+    padding: 0 2em;
+}
+
+/* navbar position fixes */
+#navbar {
+    padding: 1em 1.5em;
+}
+
+#navbar > div.container-fluid > * {
+    flex: 1;
+}
+
+#navbar > div.container-fluid > a.mobile-nav-icon + span {
+    /* hide mobile lottery completely */
+    display: none;
+}
+
+/* fix dropdown position */
+#navbarResponsive > ul > :last-child .dropdown-menu {
+    margin-left: -3em;
+}
+
+#navbarResponsive > ul > :last-child .dropdown .text-small-extra {
+    white-space: nowrap;
+}
+
+/* add bottom border to last post */
+#posts .card:last-child {
+    border-bottom-width: .1px;
+}
+
+/* -- CUSTOM STYLING -- */
+
+/* override header image */
+.navbar-brand img[alt="header icon"] {
+    width:0px;
+    height: 0px;
+}
+
+.navbar-brand::before, .navbar-brand::after {
+    /* prevent color change from hover */
+    color: var(--primary) !important;
+}
+
+.navbar-brand::before {
+    font-family: "Font Awesome 6 Pro";
+    content: "";
+}
+
+.navbar-brand::after {
+    content: "Tonic Tweak";
+}
+
+.navbar-brand ~ :not(.flex-grow-1.d-fl.d-none.d-md-block):not(.flex-grow-1.d-fl.d-none.d-md-bloc + *) {
+    display: none;
+}
+
+/* hide banner */
+img[alt="site banner"], body > img:first-child {
+    display: none;
+}
+
+/* move account counter to bottom left */
+nav > div.srd {
+    position: fixed;
+    left: 1em;
+    bottom: 1em;
+    width: auto;
+}
+
+nav > div.srd:not(:hover) {
+    max-width: 32px;
+    overflow: clip;
+}
+
+nav > div.srd:not(:hover) > :first-child:not(img) {
+    margin-left: 32px;
+}
+
+/* collapse sidebar */
+body > div.container > div > div.sidebar {
+    position: fixed;
+    right: 0;
+    top: 100px;
+    bottom: 0;
+    overflow-y: scroll;
+    transition-duration: .33s;
+    z-index: 10;
+}
+
+body > div.container > div > div.sidebar:not(:hover) {
+    padding-top: var(--sidebar-padding) !important;
+    top: calc(100vh - var(--sidebar-padding));
+}
+
+body > div.container > div > div:not(.sidebar), #post-root, #main-content-col > .comment-section {
+    padding: 0 var(--content-padding);
+}
+
+/* centered content with better scroll bars */
+body > div.container {
+    margin: 0;
+    min-width: 100vw;
+}
+
+
+body > div.container > div:last-child > table {
+    margin: 0 var(--content-padding);
+    width: calc(100% - var(--content-padding) * 2);
+}
+
+body > div.container > div > div > div.sticky {
+    position: static;
+}
+
+body > div.container > div > div > div.sticky + div + style + #posts > div {
+    max-width: 100%;
+    min-width: 100%;
+}
+
+/* spread pagination to sides */
+.pagination > .page-item:last-child {
+    margin-left: auto;
+}
+
+/* better video */
+video {
+    width: 100%;
+    background-color: black
+}
+
+#post-root > div > div > div.card-header {
+    width: 0;
+    transform: translateX(calc(-1rem - 100px));
+}
+
+#post-content > .post-meta, #post-title {
+    padding-left: 4rem;
+}
+
+#post-title {
+    margin-bottom: 2em !important;
+}
+
+#post-root > div > div > #voting {
+    width: 0;
+    transform: translateX(2rem);
+}
+
+#post-root > div > div > #voting > * {
+    display: inline-block;
+    width: 3rem;
+}
