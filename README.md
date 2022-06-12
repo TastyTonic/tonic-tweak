@@ -1,5 +1,11 @@
 # CSS UI-Tweak for [Aevann1/rDrama](https://github.com/Aevann1/rDrama)
 
+## How it's used
+Add following line to your "Custom CSS"-setting:
+```css
+@import url('https://cdn.jsdelivr.net/gh/TastyTonic/tonic-tweak@main/tweak.css');
+```
+
 ## What it does
 
 ### UI-Changes
@@ -29,7 +35,3 @@ It's gone.
 * Nav and content use flexbox instead of `position: fixed`
 * Hides mobile-only elements in nav
 * User dropdown has more space to the right
-
-## How it's used
-
-Copy and paste the CSS into the "Custom CSS" settings.
