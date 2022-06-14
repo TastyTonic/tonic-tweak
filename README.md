@@ -1,7 +1,7 @@
-# CSS UI-Tweak for [Aevann1/rDrama](https://github.com/Aevann1/rDrama)
+# CSS UI tweak for [Aevann1/rDrama](https://github.com/Aevann1/rDrama)
 
 ## How it's used
-Add following line to your "Custom CSS"-setting:
+Add following line to your "Custom CSS" setting:
 ```css
 @import url('https://cdn.jsdelivr.net/gh/TastyTonic/tonic-tweak@main/tweak.css') screen and (min-width: 720px);
 ```
@@ -11,11 +11,11 @@ Add following line to your "Custom CSS"-setting:
 ### UI-Changes
 
 #### Properly centers the search
-The search is no longer off-center.
+The search box is no longer off-center.
 ![alt text](https://github.com/TastyTonic/tonic-tweak/blob/main/screenshots/search.png?raw=true)
 
 #### Videos are full width
-Videos are centered with a black background.
+Videos are centered with a full width background.
 ![alt text](https://github.com/TastyTonic/tonic-tweak/blob/main/screenshots/video.png?raw=true)
 
 ### Moves message from above search to bottom left corner
