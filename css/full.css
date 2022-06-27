@@ -103,7 +103,7 @@ body > header > :not(img) {
 }
 
 /* hide banner */
-img[alt="site banner"], body > img:first-child {
+img[alt="site banner"], body > img:first-child, body > a:first-child > img[alt*="banner"] {
     display: none;
 }
 
